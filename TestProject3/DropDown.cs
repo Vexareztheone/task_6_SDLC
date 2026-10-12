@@ -15,8 +15,7 @@ namespace TestProject3
         [SetUp]
         public void SetUp()
         {
-            // Create object of ChromeDriver
-            driver = new ChromeDriver(options);
+            
             ChromeOptions options = new ChromeOptions();
             // Ensure Chrome runs in headless mode
             options.AddArguments("headless");
@@ -34,6 +33,8 @@ namespace TestProject3
             options.AddArguments("remote-debugging-port=9222");
             // Add implicit wait
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            // Create object of ChromeDriver
+            driver = new ChromeDriver(options);
         }
 
         [TearDown]
