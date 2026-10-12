@@ -23,7 +23,21 @@ namespace TestProject1
             driver = new ChromeDriver();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             driver.Url = "http://calculatorhtml.onrender.com/";
-
+            ChromeOptions options = new ChromeOptions();
+            // Ensure Chrome runs in headless mode
+            options.AddArguments("headless");
+            // Bypass OS security model
+            options.AddArguments("no-sandbox");
+            // Overcome limited resource problems
+            options.AddArguments("disable-dev-shm-usage");
+            // Applicable to Windows OS only
+            options.AddArguments("disable-gpu");
+            // Set window size to ensure elements are visible
+            options.AddArguments("window-size=1920x1080");
+            // Disable extensions
+            options.AddArguments("disable-extensions");
+            // Remote debugging port
+            options.AddArguments("remote-debugging-port=9222");
             textBoxFirstNum = driver.FindElement(By.Id("number1"));
             dropDownOperation = driver.FindElement(By.Id("operation"));
             textBoxSecondNum = driver.FindElement(By.Id("number2"));
