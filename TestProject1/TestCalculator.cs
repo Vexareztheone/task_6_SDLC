@@ -20,7 +20,7 @@ namespace TestProject1
         [OneTimeSetUp]
         public void SetUp()
         {
-            driver = new ChromeDriver(options);
+            
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             driver.Url = "http://calculatorhtml.onrender.com/";
             ChromeOptions options = new ChromeOptions();
@@ -44,6 +44,7 @@ namespace TestProject1
             calcBtn = driver.FindElement(By.Id("calcButton"));
             resetBtn = driver.FindElement(By.Id("resetButton"));
             divResult = driver.FindElement(By.Id("result"));
+            driver = new ChromeDriver(options);
         }
 
         [OneTimeTearDown]
